@@ -1,0 +1,134 @@
+:root {
+  --navbarColor: #0f121d;
+  --activeTabIndicatorColor: #ff784e;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar {
+  background-color: var(--navbarColor);
+  color: white;
+  width: 400px;
+  height: 72px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  width: 350px;
+  padding: 0;
+}
+
+.navbar ul li {
+  position: relative;
+  width: 70px;
+  z-index: 1;
+}
+
+.navbar ul li a {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar ul li a .icon {
+  position: relative;
+  display: block;
+  transition: 0.5s;
+  margin-top: 5px;
+}
+
+.navbar ul li.activeTab a .icon {
+  transform: translateY(-37px);
+}
+
+svg {
+  color: white;
+}
+
+.navbar ul li.activeTab a span svg {
+  color: black;
+}
+
+.navbar ul li a .text {
+  position: absolute;
+  font-weight: 500;
+  font-size: 12px;
+  opacity: 0;
+  transform: translateY(15px);
+  transition: 0.5s;
+}
+
+.navbar ul li.activeTab a .text {
+  opacity: 1;
+  transform: translateY(3px);
+}
+
+.activeTabIndicator {
+  position: absolute;
+  background-color: var(--activeTabIndicatorColor);
+  width: 40px;
+  height: 40px;
+  top: -32%;
+  left: 36.3px;
+  border-radius: 50%;
+  border: 3px solid white;
+  transition: 0.5s;
+}
+
+.activeTabIndicator::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 10px;
+  height: 10px;
+  background-color: var(--navbarColor);
+  left: -11.5px;
+  border-top-right-radius: 10px;
+  box-shadow: 0 -5px 00 white;
+}
+
+.activeTabIndicator::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 10px;
+  height: 10px;
+  background-color: var(--navbarColor);
+  right: -11.5px;
+  border-top-left-radius: 10px;
+  box-shadow: 0 -5px 00 white;
+}
+
+.navbar ul li:nth-child(1).activeTab ~ .activeTabIndicator {
+  transform: translateX(calc(70px * 0));
+}
+
+.navbar ul li:nth-child(2).activeTab ~ .activeTabIndicator {
+  transform: translateX(calc(70px * 1));
+}
+
+.navbar ul li:nth-child(3).activeTab ~ .activeTabIndicator {
+  transform: translateX(calc(70px * 2));
+}
+
+.navbar ul li:nth-child(4).activeTab ~ .activeTabIndicator {
+  transform: translateX(calc(70px * 3));
+}
+
+.navbar ul li:nth-child(5).activeTab ~ .activeTabIndicator {
+  transform: translateX(calc(70px * 4));
+}
