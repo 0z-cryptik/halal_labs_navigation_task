@@ -1,24 +1,24 @@
 :root {
-  --navbarColor: #0f121d;
+  --navBarColor: #0f121d;
   --activeTabIndicatorColor: #ff784e;
 }
 
 body {
-  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100vh;
 }
 
 .navbar {
-  background-color: var(--navbarColor);
-  color: white;
-  width: 400px;
-  height: 72px;
-  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+  background-color: var(--navBarColor);
+  color: white;
+  width: 400px;
+  height: 72px;
   border-radius: 20px;
 }
 
@@ -31,8 +31,8 @@ body {
 }
 
 .navbar ul li {
-  position: relative;
   width: 70px;
+  position: relative;
   z-index: 1;
 }
 
@@ -44,6 +44,10 @@ body {
   align-items: center;
 }
 
+svg {
+  color: white;
+}
+
 .navbar ul li a .icon {
   position: relative;
   display: block;
@@ -51,30 +55,23 @@ body {
   margin-top: 5px;
 }
 
-.navbar ul li.activeTab a .icon {
-  transform: translateY(-37px);
-}
-
-svg {
-  color: white;
-}
-
-.navbar ul li.activeTab a span svg {
-  color: black;
-}
-
 .navbar ul li a .text {
   position: absolute;
   font-weight: 500;
   font-size: 12px;
+  font-family: "Inter", sans-serif;
   opacity: 0;
-  transform: translateY(15px);
   transition: 0.5s;
+  transform: translateY(15px);
 }
 
 .navbar ul li.activeTab a .text {
   opacity: 1;
   transform: translateY(3px);
+}
+
+.navbar ul li.activeTab a .icon {
+  transform: translateY(-37px);
 }
 
 .activeTabIndicator {
@@ -92,10 +89,10 @@ svg {
 .activeTabIndicator::before {
   content: "";
   position: absolute;
-  top: 50%;
+  background-color: var(--navBarColor);
   width: 10px;
   height: 10px;
-  background-color: var(--navbarColor);
+  top: 50%;
   left: -11.5px;
   border-top-right-radius: 10px;
   box-shadow: 0 -5px 00 white;
@@ -104,10 +101,10 @@ svg {
 .activeTabIndicator::after {
   content: "";
   position: absolute;
-  top: 50%;
+  background-color: var(--navBarColor);
   width: 10px;
   height: 10px;
-  background-color: var(--navbarColor);
+  top: 50%;
   right: -11.5px;
   border-top-left-radius: 10px;
   box-shadow: 0 -5px 00 white;
@@ -131,4 +128,8 @@ svg {
 
 .navbar ul li:nth-child(5).activeTab ~ .activeTabIndicator {
   transform: translateX(calc(70px * 4));
+}
+
+.navbar ul li.activeTab a .icon svg{
+    color: black;
 }
